@@ -1,0 +1,14 @@
+#main {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  width: 100vw;
+  height: calc(100vh - 50px);
+}
+.page-content {
+  flex: auto;
+  z-index: 1600;
+  padding: 0  px 0 0 0px;
+  height: calc(100vh - 50px);
+  background: #ffffff;
+}

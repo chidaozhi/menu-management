@@ -1,0 +1,54 @@
+html,
+body {
+  color: #555;
+  overflow: hidden;
+}
+.container-fluid {
+  padding: 0px ;
+  margin: 0px ;
+}
+.navbar {
+  padding: 0 20px 0;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+.navbar-fixed-top .navbar-inverse {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+.navbar-fixed-top {
+  top: auto;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    z-index: 2000;
+  }
+  .navbar-nav li {
+    background-color: #544a45;
+  }
+}
+.system-name-img {
+  position: relative;
+  right: 20px;
+}
+.navbar-inverse {
+  background-image: linear-gradient(to bottom, #26edea 0, #2f3445 100%);
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #0b0b0b;
+}
+.middle-nav {
+  max-width: 768px;
+  height: 50px;
+  line-height: 50px;
+}

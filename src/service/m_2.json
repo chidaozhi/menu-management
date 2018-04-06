@@ -1,0 +1,33 @@
+childmenu(
+  {
+    "id": "m_2",
+    "name": "业务办理",   
+    "title": "business",
+    "children": [
+      {
+        "id": "m_2_1",
+        "name":"资源审批",
+        "title": "资源审批",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_2_1_1",
+            "name": "待办工单",
+            "title": "待办工单",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_2_1_2",
+            "name": "已办工单",
+            "title": "已办工单",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      }
+    ]
+  }
+)
+
+

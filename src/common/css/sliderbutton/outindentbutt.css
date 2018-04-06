@@ -1,0 +1,41 @@
+.tixing{
+	position: absolute;
+	top:50%;
+	width: 60px;
+	height: 0px;
+	border-bottom: 20px solid rgb(247,247,247);
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	cursor: pointer;
+}
+.tixing-left{
+	left:-27px;
+	z-index: 1700;
+	transform: rotate(90deg);
+	display: none;
+}
+.tixing-left.is-active{
+	display:none;
+}
+.tixing-left:hover{
+	transform: translateX(3px) rotate(90deg);
+}
+.tixing-right{
+	left:197px;
+	z-index: 1500;
+	transform: rotate(-90deg);
+}
+.tixing-right.is-active{
+	display: none;
+}
+.tixing-right:hover{
+	transform: translateX(-3px) rotate(-90deg);
+}
+.fa-indent{
+	color: #000;
+	transform: rotate(90deg);
+}
+.fa-outdent{
+	color: #000;
+	transform: rotate(90deg);
+}

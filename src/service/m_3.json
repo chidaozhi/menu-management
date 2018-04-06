@@ -1,0 +1,121 @@
+childmenu(
+  {
+    "id": "m_3",
+    "title": "monitor",
+    "name":"监控管理",
+    "children": [
+      {
+        "id": "m_3_1",
+        "name": "监控概览",
+        "title": "监控概览",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_3_1_1",
+            "name": "告警列表",
+            "title": "告警列表",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_3_1_2",
+            "name": "历史事件",
+            "title": "历史事件",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_3_1_3",
+            "name": "告警配置",
+            "title": "告警配置",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      },
+      {
+        "id": "m_3_2",
+        "name": "云服务器",
+        "title": "云服务器",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_3_2_1",
+            "name": "云服务器监控",
+            "title": "云服务器监控",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_3_2_2",
+            "name": "云服务器流量监控",
+            "title": "云服务器流量监控",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw" 
+          }
+        ]
+      },
+      {
+        "id":"m_3_3",
+        "name": "云网络",
+        "title": "云网络",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_3_3_1",
+            "name": "弹性IP监控",
+            "title": "弹性IP监控",
+            "url":"pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_3_3_2",
+            "name": "网络专线监控",
+            "title": "网络专线监控",
+            "url":"pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_3_3_3",
+            "name": "网络设备监控",
+            "title": "网络设备监控",
+            "url":"pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      },
+      {
+        "id":"m_3_4",
+        "name": "云负载均衡",
+        "title": "云负载均衡",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_3_4_1",
+            "name": "云负载均衡监控",
+            "title": "云负载均衡监控",
+            "url":"pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      },
+      {
+        "id":"m_3_5",
+        "name": "云物理主机",
+        "title": "云物理主机",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_3_5_1",
+            "name": "云物理主机监控",
+            "title": "云物理主机监控",
+            "url":"pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      }
+    ]
+  }
+)
+
+

@@ -1,0 +1,105 @@
+childmenu(
+    {
+      "id": "m_6",
+      "title": "operation",
+      "name":"运维管理",
+      "children": [
+        {
+          "id": "m_6_1",
+          "name": "资源管理",
+          "title": "资源管理",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_6_1_1",
+              "name": "宿主机管理",
+              "title": "宿主机管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_1_2",
+              "name": "集群管理",
+              "title": "集群管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_1_3",
+              "name": "资源池管理",
+              "title": "资源池管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_1_4",
+              "name": "云服务器管理",
+              "title": "云服务器管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_1_5",
+              "name": "交换机管理",
+              "title": "交换机管理",
+              "url":"./src/pages/page2.html",
+             "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_1_6",
+              "name": "拓扑主页",
+              "title": "拓扑主页",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            }
+          ]
+        },
+        {
+          "id": "m_6_2",
+          "name": "系统监控",
+          "title": "系统监控",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_6_2_1",
+              "name": "物理机监控",
+              "title": "物理机监控",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_2_2",
+              "name": "os平台监控",
+              "title": "os平台监控",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw" 
+            }
+          ]
+        },
+        {
+          "id":"m_6_3",
+          "name": "资源统计",
+          "title": "资源统计",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_6_3_1",
+              "name": "CPU资源统计",
+              "title": "CPU资源统计",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_6_3_2",
+              "name": "内存资源统计",
+              "title": "内存资源统计",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            }
+          ]
+        }
+      ]
+    }
+ )
+
+

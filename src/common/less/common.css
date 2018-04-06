@@ -1,0 +1,29 @@
+html,
+body {
+  color: #555;
+  overflow: hidden;
+}
+.container-fluid {
+  padding: 0px ;
+  margin: 0px ;
+}
+.navbar {
+  padding: 0 20px 0;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+.navbar-fixed-top .navbar-inverse {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+.navbar-fixed-top {
+  top: auto;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

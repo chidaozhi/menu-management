@@ -1,0 +1,74 @@
+childmenu(
+  {
+    "id": "m_4",
+    "title": "report",
+    "name":"报表管理",
+    "children": [
+      {
+        "id": "m_4_1",
+        "name": "报表管理",
+        "title": "报表管理",
+        "class":"fa fa-hand-o-down fa-fw",
+        "children": [
+          {
+            "id": "m_4_1_1",
+            "name": "上云部门统计",
+            "title": "上云部门统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_2",
+            "name": "上云项目统计",
+            "title": "上云项目统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_3",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_4",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_5",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_6",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_7",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          },
+          {
+            "id": "m_4_1_8",
+            "name": "上云业务系统统计",
+            "title": "上云业务系统统计",
+            "url":"./src/pages/page2.html",
+            "class":"fa fa-hand-o-right fa-fw"
+          }
+        ]
+      }
+    ]
+  }
+)
+

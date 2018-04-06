@@ -1,0 +1,82 @@
+childmenu(
+    {
+      "id": "m_5",
+      "title": "system",
+      "name":"系统管理",
+      "children": [
+        {
+          "id": "m_5_1",
+          "name": "用户管理",
+          "title": "用户管理",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_5_1_1",
+              "name": "用户管理",
+              "title": "用户管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_5_1_2",
+              "name": "组织机构管理",
+              "title": "组织机构管理",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            }
+          ]
+        },
+        {
+          "id": "m_5_2",
+          "name": "日志管理",
+          "title": "日志管理",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_5_2_1",
+              "name": "系统登录日志",
+              "title": "系统登录日志",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_5_2_2",
+              "name": "资源操作日志",
+              "title": "资源操作日志",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_5_2_3",
+              "name": "系统操作日志",
+              "title": "系统操作日志",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            }
+          ]
+        },
+        {
+          "id":"m_5_3",
+          "name": "流程管理",
+          "title": "流程管理",
+          "class":"fa fa-hand-o-down fa-fw",
+          "children": [
+            {
+              "id": "m_5_3_1",
+              "name": "模板配置",
+              "title": "模板配置",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            },
+            {
+              "id": "m_5_3_2",
+              "name": "流程配置",
+              "title": "流程配置",
+              "url":"./src/pages/page2.html",
+              "class":"fa fa-hand-o-right fa-fw"
+            }
+          ]
+        }
+      ]
+    }
+)

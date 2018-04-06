@@ -1,0 +1,35 @@
+@padding-left-right: 0 20px 0;
+@navbar-border-radius:0px;
+@font-color-dark:#555;
+@font-color-light:#fff;
+@back-color-light:rgba(222,222,222,0.35);
+
+html,body{
+  color: @font-color-dark;
+  overflow: hidden;
+}
+.container-fluid{
+  padding:0px ;
+  margin: 0px ;
+}
+.navbar{
+  padding: @padding-left-right;
+  -webkit-border-radius: @navbar-border-radius !important;
+  -moz-border-radius: @navbar-border-radius !important;
+  border-radius: @navbar-border-radius !important;
+}
+.navbar-fixed-top .navbar-inverse{
+  -webkit-border-radius: @navbar-border-radius !important;
+  -moz-border-radius: @navbar-border-radius !important;
+  border-radius: @navbar-border-radius !important;
+}
+.navbar-fixed-top{
+  top: auto;
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
