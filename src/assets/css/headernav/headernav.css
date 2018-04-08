@@ -38,14 +38,16 @@ body {
   }
 }
 .system-name-img {
+  height: 48px;
+  width: auto;
   position: relative;
   right: 20px;
 }
 .navbar-inverse {
-  background-image: linear-gradient(to bottom, #26edea 0, #2f3445 100%);
+  background-image: linear-gradient(to bottom, #2684ff 0, #2684ff 100%);
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #0b0b0b;
+  color: #eee;
 }
 .middle-nav {
   max-width: 768px;
