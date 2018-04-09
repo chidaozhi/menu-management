@@ -1,126 +1,142 @@
 @import url("../../../common/less/common.less");
-@header-height:50px;
+
+@header-height: 50px;
 @media (max-width: 768px) {
-  .navbar-nav{
+  .navbar-nav {
     margin-top: 0px;
     margin-bottom: 0px;
     z-index: 2000;
   }
-  .navbar-nav li{
-    background-color: hsla(20,10%,30%,1);
+
+  .navbar-nav li {
+    background-color: hsla(20, 10%, 30%, 1);
   }
-
-
-
 }
-.system-name-img{
+
+.system-name-img {
   height: 48px;
   width: auto;
   position: relative;
   right: 20px;
 }
-.navbar-inverse{
-   //background-image: linear-gradient(to bottom,#26edea 0,#2f3445 100%);
-  background-image: linear-gradient(to bottom, rgb(38,132,255) 0,rgb(38,132,255) 100% );
+
+.navbar-inverse {
+  //background-image: linear-gradient(to bottom,#26edea 0,#2f3445 100%);
+  background-image: linear-gradient(to bottom, rgb(38, 132, 255) 0, rgb(38, 132, 255) 100%);
 }
-.navbar-inverse .navbar-nav>li>a {
-   //color: #0b0b0b;
+
+.navbar-inverse .navbar-nav > li > a {
+  //color: #0b0b0b;
   color: #eee;
 
 }
-//header{
-//  position: fixed;
-//  z-index: 200;
-//  background: url("../../img/background.jpg") no-repeat;
-//  background-size: cover;
-//  height: @header-height;
-//  line-height: @header-height;
-//  width: 100%;
-//}
-//.header-left{
-//  padding: 0 50px 0;
-//}
-//@media (max-width:1172px) {
-//  .header-left{
-//    width: 300px;
-//  }
-//  .header-middle, .navbar-search, .search-query, .search-img{
-//    display: none !important;
-//  }
-//}
-//.navbar-fixed-top{
-//  //top: 50px;+header
-//  top: 0;
-//}
-//.row .header-row{
-//  padding:0px;
-//  margin: 0;
-//  min-width: 786px;
-//  width: 100%;
-//  height: 100%;
-//  overflow: auto;
-//  display: flex;
-//  align-items: center;
-//}
-//.header-middle{
-//  display: flex;
-//  align-items: center;
-//  height: @header-height;
-//  width: 200px;
-//}
-//.navbar-search{
-//  display: block;
-//  height: 24px;
-//  width: 100%;
-//  line-height: 24px;
-//  border-radius: 15px;
-//  padding: 0 10px 0;
-//  background-color: @back-color-light;
-//
-//}
-//.search-query{
-//  display: inline-block;
-//  float: left;
-//  width: 130px;
-//  font-size: 12px;
-//  font-family: "Helvetica Neue" Helvetica, Arial, sans-serif;
-//  border: 0;
-//  background-color: @back-color-light;
-//  color: @font-color-dark;
-//}
-//.search-img{
-//  display: inline-block;
-//  float: right;
-//  width: 14px;
-//  height: 24px;
-//  line-height: 24px;
-//  border: 0;
-//  background-color: @back-color-light;
-//  background: url("../../img/search.png") no-repeat right;
-//}
-//.header-right{
-//  height: @header-height;
-//  display: flex;
-//  align-items: center;
-//}
-//.login-style,.register-style{
-//  float: right;
-//  width: 50px;
-//  height: 30px;
-//  line-height: 30px;
-//  margin-right: 10px;
-//  border-radius: 4px;
-//  padding: 0px;
-//  border: 0;
-//  background: @back-color-light;
-//  &:hover{
-//    color: @font-color-dark;
-//  }
-//}
-//
-.middle-nav{
-  max-width: 768px;
-  //margin: 0 auto 0;
-  height: 50px;
-  line-height: 50px;
+
+//.navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a {
+//  background-image: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 100%);
+//  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 100%);
+//  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.2)));
+//  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.2) 100%);
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: rgba(8, 8, 8, 0);
 }
+.navbar-inverse .navbar-nav > .active > a {
+  background-image: linear-gradient(to bottom, rgb(164, 73, 103) 0, rgb(153, 63, 96) 100%);
+}
+
+  //header{
+  //  position: fixed;
+  //  z-index: 200;
+  //  background: url("../../img/background.jpg") no-repeat;
+  //  background-size: cover;
+  //  height: @header-height;
+  //  line-height: @header-height;
+  //  width: 100%;
+  //}
+  //.header-left{
+  //  padding: 0 50px 0;
+  //}
+  //@media (max-width:1172px) {
+  //  .header-left{
+  //    width: 300px;
+  //  }
+  //  .header-middle, .navbar-search, .search-query, .search-img{
+  //    display: none !important;
+  //  }
+  //}
+  //.navbar-fixed-top{
+  //  //top: 50px;+header
+  //  top: 0;
+  //}
+  //.row .header-row{
+  //  padding:0px;
+  //  margin: 0;
+  //  min-width: 786px;
+  //  width: 100%;
+  //  height: 100%;
+  //  overflow: auto;
+  //  display: flex;
+  //  align-items: center;
+  //}
+  //.header-middle{
+  //  display: flex;
+  //  align-items: center;
+  //  height: @header-height;
+  //  width: 200px;
+  //}
+  //.navbar-search{
+  //  display: block;
+  //  height: 24px;
+  //  width: 100%;
+  //  line-height: 24px;
+  //  border-radius: 15px;
+  //  padding: 0 10px 0;
+  //  background-color: @back-color-light;
+  //
+  //}
+  //.search-query{
+  //  display: inline-block;
+  //  float: left;
+  //  width: 130px;
+  //  font-size: 12px;
+  //  font-family: "Helvetica Neue" Helvetica, Arial, sans-serif;
+  //  border: 0;
+  //  background-color: @back-color-light;
+  //  color: @font-color-dark;
+  //}
+  //.search-img{
+  //  display: inline-block;
+  //  float: right;
+  //  width: 14px;
+  //  height: 24px;
+  //  line-height: 24px;
+  //  border: 0;
+  //  background-color: @back-color-light;
+  //  background: url("../../img/search.png") no-repeat right;
+  //}
+  //.header-right{
+  //  height: @header-height;
+  //  display: flex;
+  //  align-items: center;
+  //}
+  //.login-style,.register-style{
+  //  float: right;
+  //  width: 50px;
+  //  height: 30px;
+  //  line-height: 30px;
+  //  margin-right: 10px;
+  //  border-radius: 4px;
+  //  padding: 0px;
+  //  border: 0;
+  //  background: @back-color-light;
+  //  &:hover{
+  //    color: @font-color-dark;
+  //  }
+  //}
+  //
+  .middle-nav {
+    max-width: 768px;
+    //margin: 0 auto 0;
+    height: 50px;
+    line-height: 50px;
+  }
