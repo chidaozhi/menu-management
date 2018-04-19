@@ -10,9 +10,9 @@
     <!--<link rel="stylesheet" href="./import/jquery-pretty-radio-checkbox/css/jquery-labelauty.css">-->
     <link rel="stylesheet" href="./modules/import/icheck-1.x/css/custom.css">
     <link rel="stylesheet" href="./modules/import/icheck-1.x/skins/all.css">
-    <script src="http://files.cnblogs.com/files/xiaohuochai/jquery-1.10.0.js"></script>
-    <script src="http://files.cnblogs.com/files/xiaohuochai/jquery.validate-1.13.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../imports/jquery/1.11.3/jquery.min.js"></script>
+    <script src="./modules/import/jquery-validation/jquery.validate.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
     <script src="./modules/import/layDate-v5.0.9/laydate/laydate.js"></script>
     <script src="./modules/js/area.js"></script>
     <script src="./modules/js/location-country.js"></script>
@@ -244,11 +244,11 @@
                             <option value="3">3年</option>
                         </select>
                     </div>
-                    <div class="price">
+                    <!--<div class="price">
                         <p>共计：</p>
                         <span id="app">{{msg}}</span>
                         
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </form>
@@ -258,12 +258,12 @@
     <script>
         
         
-        var app = new Vue({
-            el: '#app',
-            data: {
-                msg: 'Hello Vue!'
-            }
-        });
+        // var app = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         msg: 'Hello Vue!'
+        //     }
+        // });
 
         /*
         **icheck单选、复选框
