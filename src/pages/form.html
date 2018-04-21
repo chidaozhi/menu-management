@@ -21,6 +21,7 @@
     <!--<script src="./import/jquery-pretty-radio-checkbox/js/jquery-labelauty.js"></script>-->
     <script src="./modules/import/icheck-1.x/js/icheck.min.js"></script>
     <script src="./modules/import/icheck-1.x/js/custom.min.js"></script>
+    <script src="./modules/import/gVerify/gVerify.js"></script>
     <!--<script src="./service/location.json?callback=loc"></script>-->
 </head>
 <style>
@@ -223,26 +224,28 @@
                         <div class="skin-section">服务级别：
                             <ul class="list service level">
                                 <li>
-                                    <input tabindex="19" type="checkbox" id="primary" name="service" value="primary" checked>
+                                    <input tabindex="19" type="radio" id="primary" name="service" value="primary" >
                                     <label for="primary">高级会员(58/年)</label>
                                 </li>
                                 <li>
-                                    <input tabindex="20" type="checkbox" id="middle" name="service" value="middle">
+                                    <input tabindex="20" type="radio" id="middle" name="service" value="middle">
                                     <label for="middle">超级会员（88/年）</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" id="high" name="service" value="high">
+                                    <input type="radio" id="high" name="service" value="high">
                                     <label for="high">至尊会员（118/年）</label>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="service-time">购买时间：
-                        <select class="service-time-select" name="buyYear">
-                            <option value="1">1年</option>
-                            <option value="2">2年</option>
-                            <option value="3">3年</option>
-                        </select>
+                    <div class="service-time">
+                        <!--<div class="service-time-select"> 购买时间：-->
+                            <!--<select class="js-example-basic-single service-time-select" name="buyYear">-->
+                                <!--<option value="1">1年</option>-->
+                                <!--<option value="2">2年</option>-->
+                                <!--<option value="3">3年</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
                     </div>
                     <!--<div class="price">
                         <p>共计：</p>
@@ -251,9 +254,15 @@
                     </div>-->
                 </div>
             </div>
+            <div class="verify-img" >
+                <div id="verify" style="width: 200px;height: 50px;"></div>>
+                <input type="text" id="code_input" value="" placeholder="请输入验证码"/><button id="my_button">验证</button>
+            </div>
         </form>
-        <button id="test">一键测试</button>
-        <button id="btn">提交</button>
+        <div class="submit-btn">
+            <button id="test">一键测试</button>
+            <button id="btn">提交</button>
+        </div>
     </div>
     <script>
         
@@ -286,15 +295,39 @@
                     insert: '<div class="icheck_line-icon"></div>' + label_text
                 });
             });
+            $("input[name='service']").on("ifChecked", function(event){
+                $("input[name='service']").on("ifClicked", function(event){
+                    $("input[name='service']").iCheck('uncheck');
+                });
+            });
+            
+            
+            
+            $("input[name='service']").on('ifChanged',function () {
+                var serviceVal = $("input[name='service']:checked").val();
+                if(serviceVal == null){
+                    $('.service-time').empty();
+                }else{
+                    $('.service-time').append('<div class="service-time-select"> 购买时间：\n' +
+                        '                            <select class="js-example-basic-single service-time-select" name="buyYear">\n' +
+                        '                                <option value="1">1年</option>\n' +
+                        '                                <option value="2">2年</option>\n' +
+                        '                                <option value="3">3年</option>\n' +
+                        '                            </select>\n' +
+                        '                        </div>');
+                    $('.js-example-basic-single.service-time-select').select2();
+                }
+            });
+            
         });
 
-        var date = new Date();
-        var getMonth = date.getMonth() + 1;
-        var nowDate = date.getFullYear() + '-' + getMonth + '-' + date.getDate();
-        $('.service-box').click(function () {
-            $('.service-box').removeClass('focus');
-            $(this).toggleClass('focus');
-        });
+//        var date = new Date();
+//        var getMonth = date.getMonth() + 1;
+//        var nowDate = date.getFullYear() + '-' + getMonth + '-' + date.getDate();
+//        $('.service-box').click(function () {
+//            $('.service-box').removeClass('focus');
+//            $(this).toggleClass('focus');
+//        });
         /*
         **select2下拉框插件
         *多项选择-爱好
@@ -302,10 +335,11 @@
         $('.interest-select').select2({
             closeOnSelect: false,
             allowClear:true
-
         });
         $('.select2-search__field').remove();
-        $('.service-time-select').select2();
+        $('.js-example-basic-single.service-time-select').select2();
+        
+        
         /*
         **表单验证
         *1.添加自定义验证-手机验证
@@ -374,7 +408,7 @@
         });
         /*
         **表单验证
-        *3.汉子提示
+        *3.汉字提示
         */
         $.extend($.validator.messages, {
             required: "这是必填字段",
@@ -399,25 +433,29 @@
          * 发送表单ajax请求
          */
         $('#btn').on('click',function(){
-            $('#f1').valid();
-
-            var param = $('#f1').serializeObject() ;
-            var json = JSON.stringify(param);
-            $.ajax({
-                url:"http://39.104.168.114:80/mg-web/app/test",
-                async:false,
-                type:'post',
-                // useDefaultXhrHeader:false,
-                data:json,
-                dataType:'text',
-                contentType:"application/json",  //缺失会出现URL编码，无法转成json对象
-                success:function(){
-                    alert("成功");
-                },
-                error:function(req){
-                    console.log(req);
-                }
-            });
+            var submitValid = $('#f1').valid();
+            if (submitValid === true){
+                var param = $('#f1').serializeObject() ;
+                var json = JSON.stringify(param);
+                $.ajax({
+                    url:"http://127.0.0.1:80/mg-web/app/test",
+                    async:false,
+                    type:'post',
+                    // useDefaultXhrHeader:false,
+                    data:json,
+                    dataType:'text',
+                    contentType:"application/json",  //缺失会出现URL编码，无法转成json对象
+                    success:function(){
+                        alert("成功");
+                    },
+                    error:function(req){
+                        console.log(req);
+                    }
+                });
+            } else {
+                alert('提交失败！请检验表单项！')
+            }
+            
         });
         /**
          * 自动将form表单封装成json对象
@@ -441,22 +479,31 @@
          * 一键添加所有测试项
          */
         $('#test').click(function () {
+            var	title = '<option></option>';
             $('#username').attr("value","chidao");
             $('#password').attr("value","123123");
             $('#confirm-password').attr("value","123123");
             $('#mail').attr("value","chi@123.com");
             $('#phone').attr("value","15644556677");
-            $('.iradio_minimal-pink').has('#male').addClass('checked');
+            $('#male').iCheck('check');
+            $('#society').iCheck('check');
+            $('#life').iCheck('check');
+            $('#sports').iCheck('check');
             $('#date').attr("value","12月3日");
             $('#age').attr("value","25");
-            $('#loc_province').next().children('#select2-loc_province-container').attr("title","中国");
-            $("input[name='city[]']").attr("value","20");
-            $("input[name='town[]']").attr("value","22");
-            $("input[name='textarea']").attr("value","text");
-            $("input[name='states[]']").attr("value","love");
-            $("input[name='attention']").attr("value","['life','sports']");
-            $("input[name='service']").attr("value","1");
-            $("input[name='buyYear']").attr("value","2");
+            $('#loc_province option').remove(':first');
+            $('#loc_province').trigger('change');
+            $('#loc_city option').remove(':first');
+            $('#loc_city').trigger('change');
+            $('#loc_town option').remove(':first');
+            $('#loc_town').trigger('change');
+            $("textarea").text("text");
+            $('.interest-select').val(['love','japanese']);
+            $('.interest-select').trigger('change');
+            $('#high').iCheck('check');
+            $('.js-example-basic-single.service-time-select').val('3');
+            
+            
             
         });
         
@@ -472,13 +519,21 @@
             done: function (value, date) {
             }
         });
-    /*
-    **jquery-pretty单选复选插件
-    *
-    */
-    // $(function () {
-    //     $(':input').labelauty();
-    // });
+        /*
+        **验证码插件
+        *
+        */
+        var verifyCode = new GVerify("verify");
+        document.getElementById("my_button").onclick = function(){
+            var res = verifyCode.validate(document.getElementById("code_input").value);
+            if(res){
+                alert("验证正确");
+            }else{
+                alert("验证码错误");
+            }
+        }
+        
+        
     </script>
 </body>
 
