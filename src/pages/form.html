@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./modules/import/select2/css/select2.min.css">
+	<!--<link rel="stylesheet" href="./import/jquery-pretty-radio-checkbox/css/jquery-labelauty.css">-->
+	<link rel="stylesheet" href="./modules/import/icheck-1.x/css/custom.css">
+	<link rel="stylesheet" href="./modules/import/icheck-1.x/skins/all.css">
+	<script src="../imports/jquery/1.11.3/jquery.min.js"></script>
+	<script src="./modules/import/jquery-validation/jquery.validate.min.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+	<script src="./modules/import/layDate-v5.0.9/laydate/laydate.js"></script>
+	<script src="./modules/js/area.js"></script>
+	<script src="./modules/js/location-country.js"></script>
+	<script src="./modules/import/select2/js/select2.min.js"></script>
+	<!--<script src="./js/select2_locale_zh-CN.js"></script>-->
+	<!--<script src="./import/jquery-pretty-radio-checkbox/js/jquery-labelauty.js"></script>-->
+	<script src="./modules/import/icheck-1.x/js/icheck.min.js"></script>
+	<script src="./modules/import/icheck-1.x/js/custom.min.js"></script>
+	<script src="./modules/import/gVerify/gVerify.js"></script>
+	<!--<script src="./service/location.json?callback=loc"></script>-->
+</head>
+<style>
+	body {
+		font-family: "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif;
+		background: white;
+	}
+	
+	.skin-section,
+	.skin-section .list {
+		float: none;
+	}
+	
+	.skin-section .list li {
+		width: auto;
+		
+		display: inline-block;
+	}
+	
+	label.error {
+		display: inline-block !important;
+		position: absolute;
+		float: left;
+		background: yellow;
+		margin-left: 60px;
+		padding-left: 16px;
+		color: #EA5200;
+		width: 150px;
+		height: auto;
+		border-radius: 10px;
+	}
+	
+	form .textarea {
+		width: 100%;
+		height: auto;
+		min-height: 100px;
+	}
+	
+	.interest-select,
+	.service-time-select {
+		width: 500px;
+	}
+	
+	/*input.service-input {
+		display: none;
+	}*/
+	
+	.service-box {
+		margin: 10px;
+		padding: 10px;
+		float: left;
+		width: 163px;
+		height: auto;
+		background-color: rgb(35, 48, 99);
+		border: 1px solid rgb(6, 139, 252);
+		color: #eee;
+		font-size: 12px;
+		text-align: center;
+	}
+	
+	.service-box:hover {
+		background-color: rgb(58, 66, 245);
+		cursor: pointer;
+	}
+	
+	.service-box.focus {
+		background-color: rgb(58, 66, 245);
+	}
+	
+	/*form ul {
+		list-style-type: none;
+	}
+
+	form li {
+		display: inline-block;
+		margin: 10px 0;
+	}*/
+	/*input.labelauty+label {
+		font: 12px "Microsoft Yahei";
+	}*/
+</style>
+
+<body>
+<div class="main">
+	<form id="f1">
+		<div class="basic">
+			<p>基本信息</p>
+			<div id="basicForm">
+				<p>
+					<label for="username">*用户名：</label>
+					<input type="text" id="username" name="username"/>
+				</p>
+				<p>
+					<label for="password">*密码：</label>
+					<input type="password" id="password" name="password"/>
+				</p>
+				<p>
+					<label for="confirm-password">*确认密码</label>
+					<input type="password" id="confirm-password" name="confirm-password"/>
+				</p>
+				<p>
+					<label for="mail">*电子邮箱：</label>
+					<input type="text" id="mail" name="mail"/>
+				</p>
+				<p>
+					<label for="phone">*手机号码：</label>
+					<input type="text" id="phone" name="phone"/>
+				</p>
+				<div class="skin skin-minimal">
+					<div class="skin-section">*性别：
+						<!--<label for="sex">性别：</label>-->
+						<ul class="list">
+							<!--<li><input type="radio" name="sex" value="男" id="male" data-labelauty="男"></li>
+							<li><input type="radio" name="sex" value="女" id="female" data-labelauty="女"></li>-->
+							<li>
+								<input type="radio" id="male" name="sex" value="男">
+								<label for="male">男</label>
+							</li>
+							<li>
+								<input type="radio" id="female" name="sex" value="女">
+								<label for="female">女</label>
+							</li>
+						</ul>
+						<!--</label>-->
+					
+					</div>
+					<p>
+						<label for="date">*生日：</label>
+						<input id="date" name="date"/>
+					</p>
+					<p>
+						<label for="age">*年龄：</label>
+						<input id="age" name="age"/>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="extra">
+			<p>附加信息</p>
+			<div id="extraForm">
+				<p>
+					<label>*所在位置：</label>
+					<select id="loc_province" name="province" style="width:120px;" required></select>
+					<select id="loc_city" name="city" style="width:120px; margin-left: 10px" required></select>
+					<select id="loc_town" name="town" style="width:120px;margin-left: 10px" required></select>
+				</p>
+				<p>
+					<label>自我介绍（非必填：不得超过400字）</label>
+					<textarea placeholder="请输入内容" class="textarea" name="textarea" id="textarea"></textarea>
+				</p>
+			</div>
+		</div>
+		<div class="interest">
+			<p>关注信息</p>
+			<div id="interestForm">
+				<p>
+					<label>爱好：</label>
+					<select class="interest-select" name="interest" multiple="multiple">
+						<option value="classical" id="classical">古典</option>
+						<option value="martial" id="martial">武侠</option>
+						<option value="love" id="love">恋爱</option>
+						<option value="japanese" id="japanese">日系</option>
+						<option value="korean" id="korean">韩系</option>
+						<option value="immortol" id="immortol">修仙</option>
+						<option value="other" id="other">其他</option>
+					</select>
+				</p>
+				<div class="skin skin-line">
+					<div class="skin-section">关注题材：
+						
+						<ul class="list">
+							<li>
+								<input tabindex="17" type="checkbox" id="society" name="attention" value="society">
+								<label for="society">社会</label>
+							</li>
+							<li>
+								<input tabindex="18" type="checkbox" id="life" name="attention" value="life">
+								<label for="life">生活</label>
+							</li>
+							<li>
+								<input type="checkbox" id="sports" name="attention" value="sports">
+								<label for="sports">运动</label>
+							</li>
+							<li>
+								<input type="checkbox" id="art" name="attention" value="art">
+								<label for="art">艺术</label>
+							</li>
+							<li>
+								<input type="checkbox" id="culture" name="attention" value="culture">
+								<label for="culture">文化</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="service">
+			<p>购买服务列表</p>
+			<div id="serviceForm">
+				<div class="skin skin-line">
+					<div class="skin-section">服务级别：
+						<ul class="list service level">
+							<li>
+								<input tabindex="19" type="radio" id="primary" name="service" value="58">
+								<label for="primary">高级会员(58/年)</label>
+							</li>
+							<li>
+								<input tabindex="20" type="radio" id="middle" name="service" value="88">
+								<label for="middle">超级会员（88/年）</label>
+							</li>
+							<li>
+								<input type="radio" id="high" name="service" value="118">
+								<label for="high">至尊会员（118/年）</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="service-time">
+					<!--<div class="service-time-select"> 购买时间：-->
+					<!--<select class="js-example-basic-single service-time-select" name="buyYear">-->
+					<!--<option value="1">1年</option>-->
+					<!--<option value="2">2年</option>-->
+					<!--<option value="3">3年</option>-->
+					<!--</select>-->
+					<!--</div>-->
+				</div>
+				<div class="price">
+					<p>共计：</p>
+					<span id="price">
+                        
+                        </span>
+				
+				</div>
+			</div>
+		</div>
+		<div class="verify-img">
+			<div id="verify" style="width: 200px;height: 50px;"></div>
+			>
+			<input type="text" id="code_input" name="code_input" value="" placeholder="请输入验证码"/>
+			<button id="my_button">验证</button>
+		</div>
+	</form>
+	<div class="submit-btn">
+		<button id="test">一键测试</button>
+		<button id="btn" disabled="disabled">提交</button>
+	</div>
+</div>
+<script>
+    $(function () {
+        /*
+	**计算价格
+	*
+	*/
+        var unitPrice;
+        var buyYear;
+        var price;
+
+        function countPrice() {
+            unitPrice = $('input[name="service"]:checked').val();
+            buyYear = $('.js-example-basic-single.service-time-select').val();
+            if (buyYear === undefined || unitPrice === undefined) {
+                price = 0;
+            } else {
+                price = unitPrice * buyYear;
+            }
+            $('#price').text(price);
+            return price;
+        }
+
+        countPrice();
+
+        /*
+	**icheck单选、复选框
+	*
+	*/
+        $(document).ready(function () {
+            $('.skin-minimal input').iCheck({
+                checkboxClass: 'icheckbox_minimal-pink',
+                radioClass: 'iradio_minimal-pink',
+                increaseArea: '20%'
+            });
+            $('.skin-line input').each(function () {
+                var self = $(this),
+                    label = self.next(),
+                    label_text = label.text();
+                label.remove();
+                self.iCheck({
+                    checkboxClass: 'icheckbox_line-red',
+                    radioClass: 'iradio_line-red',
+                    insert: '<div class="icheck_line-icon"></div>' + label_text
+                });
+            });
+            $("input[name='service']").on("ifChecked", function (event) {
+                $("input[name='service']").on("ifClicked", function (event) {
+                    $("input[name='service']").iCheck('uncheck');
+                });
+            });
+            $("input[name='service']").on('ifChanged', function () {
+                countPrice();
+                var serviceVal = $("input[name='service']:checked").val();
+                if (serviceVal == undefined) {
+                    $('.service-time').empty();
+                } else {
+                    $('.service-time').append('<div class="service-time-select"> 购买时间：\n' +
+                        '                            <select id="buy-year" class="js-example-basic-single service-time-select" name="buyYear">\n' +
+                        '                                <option value="1">1年</option>\n' +
+                        '                                <option value="2">2年</option>\n' +
+                        '                                <option value="3">3年</option>\n' +
+                        '                            </select>\n' +
+                        '                        </div>');
+                    $('.js-example-basic-single.service-time-select').select2();
+                    countPrice();
+                    $('.js-example-basic-single.service-time-select').change(function () {
+                        countPrice();
+                    });
+
+                }
+            });
+
+        });
+        /*
+	**select2下拉框插件
+	*多项选择-爱好
+	*/
+        $('.interest-select').select2({
+            closeOnSelect: false,
+            allowClear: true
+        });
+        $('.select2-search__field').remove();
+        /*
+	**laydate日期插件
+	*
+	*/
+        var lay = laydate.render({
+            elem: '#date',
+            format: 'M月d日',
+            // value:nowDate,
+            done: function (value, date) {
+            }
+        });
+        /*
+		**验证码插件
+		*
+		*/
+        var verifyCode = new GVerify("verify");
+        document.getElementById("my_button").onclick = function () {
+            var res = verifyCode.validate(document.getElementById("code_input").value);
+            if (res) {
+                alert("验证正确");
+                $('#btn').removeAttr("disabled");
+            } else {
+                alert("验证码输入错误");
+//                $('#test').removeAttr("disabled");
+            }
+        };
+        /*
+	**表单验证
+	*1.添加自定义验证-手机验证
+	*/
+        $.validator.addMethod(
+            'phone',
+            function (value, element, param) {
+                var reg = /^(0|\+86)?(13\d|14[579]|15[0-35-9]|17[0135-8]|18\d)\d{8}$/;
+                return reg.test(value);
+            },
+            '请输入正确的手机号码'
+        );
+        /*
+		**表单验证
+		*2.验证规则配置
+		*/
+        $.validator.setDefaults({
+            debug: true,
+            success: "valid"
+
+        });
+        $('#f1').validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 5,
+                    maxlength: 16
+                },
+                password: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 10
+                },
+                'confirm-password': {
+                    required: true,
+                    equalTo: "#password"
+                },
+                mail: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    phone: true
+                },
+                date: {
+                    required: true
+                },
+                age: {
+                    required: true,
+                    number: true,
+                    min: 0
+                },
+                sex: {
+                    required: true
+                },
+                textarea: {
+                    maxlength: 400
+                },
+                code_input: {
+                    required: true
+                }
+            },
+            messages: {
+                phone: {
+                    required: "请输入手机号码"
+                }
+            }
+        });
+        $('#verify').validate({
+	        debug:true
+        });
+        $('#confirm-password').validate({
+            debug:true
+        });
+        /*
+		**表单验证
+		*3.汉字提示
+		*/
+        $.extend($.validator.messages, {
+            required: "这是必填字段",
+            remote: "请修正此字段",
+            email: "请输入有效的电子邮件地址",
+            url: "请输入有效的网址",
+            date: "请输入有效的日期",
+            dateISO: "请输入有效的日期 (YYYY-MM-DD)",
+            number: "请输入有效的数字",
+            digits: "只能输入数字",
+            creditcard: "请输入有效的信用卡号码",
+            equalTo: "两次输入密码不同",
+            extension: "请输入有效的后缀",
+            maxlength: $.validator.format("最多可以输入 {0} 个字符"),
+            minlength: $.validator.format("最少要输入 {0} 个字符"),
+            rangelength: $.validator.format("请输入长度在 {0} 到 {1} 之间的字符串"),
+            range: $.validator.format("请输入范围在 {0} 到 {1} 之间的数值"),
+            max: $.validator.format("请输入不大于 {0} 的数值"),
+            min: $.validator.format("请输入不小于 {0} 的数值")
+        });
+        /**
+         * 发送表单ajax请求提交表单
+         */
+        $('#btn').on('click', function () {
+            var submitValid = $('#f1').valid();
+            if (submitValid === true) {
+                var param = $('#f1').serializeObject();
+                var json = JSON.stringify(param);
+                $.ajax({
+                    url: "http://47.104.23.245:80/mg-web/app/test2",
+                    async: false,
+                    type: 'post',
+                    // useDefaultXhrHeader:false,
+                    data: json,
+                    dataType: 'text',
+                    contentType: "application/json",  //缺失会出现URL编码，无法转成json对象
+                    success: function () {
+                        alert("成功");
+                    },
+                    error: function (req) {
+                        console.log(req);
+                    }
+                });
+            } else {
+                alert('提交失败！请检验表单项！')
+            }
+
+        });
+        /**
+         * 自动将form表单封装成json对象
+         */
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        /**
+         * 一键添加所有测试项
+         */
+        $('#test').click(function () {
+            var title = '<option></option>';
+            $('#username').attr("value", "chidao");
+            $('#password').attr("value", "123123");
+            $('#confirm-password').attr("value", "123123");
+            $('#mail').attr("value", "chi@123.com");
+            $('#phone').attr("value", "15644556677");
+            $('#male').iCheck('check');
+            $('#society').iCheck('check');
+            $('#life').iCheck('check');
+            $('#sports').iCheck('check');
+            $('#date').attr("value", "12月3日");
+            $('#age').attr("value", "25");
+            $('#loc_province option').remove(':first');
+            $('#loc_province').trigger('change');
+            $('#loc_city option').remove(':first');
+            $('#loc_city').trigger('change');
+            $('#loc_town option').remove(':first');
+            $('#loc_town').trigger('change');
+            $("textarea").text("text");
+            $('.interest-select').val(['love', 'japanese']);
+            $('.interest-select').trigger('change');
+            $('#high').iCheck('check');
+//            $('#buy-year').val('3');
+            $('#test').attr("disabled","disabled");
+        });
+
+    });
+
+
+    //        var date = new Date();
+    //        var getMonth = date.getMonth() + 1;
+    //        var nowDate = date.getFullYear() + '-' + getMonth + '-' + date.getDate();
+    //        $('.service-box').click(function () {
+    //            $('.service-box').removeClass('focus');
+    //            $(this).toggleClass('focus');
+    //        });
+
+
+    //        $("input[name='service']").on('ifChanged',function (){
+    //            countPrice();
+    //        });
+    //        $('.js-example-basic-single.service-time-select').change(function () {
+    //            countPrice();
+    //        });
+
+
+</script>
+</body>
+
+</html>
