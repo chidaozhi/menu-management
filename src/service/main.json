@@ -5,31 +5,6 @@ main(
       "id": "m_1",
       "title": "resource",
       "name":"资源管理"
-    },
-    {
-      "id": "m_2",
-      "name": "业务办理",
-      "title": "business"
-    },
-    {
-      "id": "m_3",
-      "title": "monitor",
-      "name":"监控管理"
-    },
-    {
-      "id": "m_4",
-      "title": "report",
-      "name":"报表管理"
-    },
-    {
-      "id": "m_5",
-      "title": "system",
-      "name":"系统管理"
-    },
-    {
-      "id": "m_6",
-      "title": "operation",
-      "name":"运维管理"
     }
   ]
 })

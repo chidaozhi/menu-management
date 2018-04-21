@@ -2,234 +2,24 @@ childmenu(
   {
       "id": "m_1",
       "title": "resource",
-      "name":"资源管理",
+      "name":"项目管理",
       "children": [
         {
           "id": "m_1_1",
-          "name": "资源概览",
-          "title": "资源概览",
+          "name": "form表单",
+          "title": "form表单",
           "class":"fa fa-hand-o-down fa-fw",
           "children": [
             {
               "id": "m_1_1_1",
-              "name": "资源一览",
-              "title": "资源一览",
-              "url":"http://www.taobao.com",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_1_2",
-              "name": "资源操作",
-              "title": "资源操作",
-              "url":"http://www.jd.com",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]
-        },
-        {
-          "id": "m_1_2",
-          "name": "表单提交",
-          "title": "表单提交",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_2_1",
-              "name": "表单提交",
-              "title": "表单提交",
+              "name": "form表单",
+              "title": "form表单",
               "url":"./src/pages/form.html",
               "class":"fa fa-hand-o-right fa-fw"
             }
           ]
-        },
-        {
-          "id":"m_1_3",
-          "name": "云服务器",
-          "title": "云服务器",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_3_1",
-              "name": "实例管理",
-              "title": "实例管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_3_2",
-              "name": "镜像管理",
-              "title": "镜像管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_3_3",
-              "name": "日志管理",
-              "title": "日志管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_3_4",
-              "name": "已删除云服务器",
-              "title": "已删除云服务器",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]
-        },
-        {
-          "id":"m_1_4",
-          "name": "弹性伸缩管理",
-          "title": "弹性伸缩管理",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_4_1",
-              "name": "弹性伸缩实例",
-              "title": "弹性伸缩实例",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_4_2",
-              "name": "日志管理",
-              "title": "日志管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]
-        },
-        {
-          "id":"m_1_5",
-          "name": "云硬盘",
-          "title": "云硬盘",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_5_1",
-              "name": "云硬盘管理",
-              "title": "云硬盘管理",
-              "url":"pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]
-        },
-        {
-          "id":"m_1_6",
-          "name": "云负载均衡",
-          "title": "云负载均衡",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_6_1",
-              "name": "实例管理",
-              "title": "实例管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_6_2",
-              "name": "日志管理",
-              "title": "日志管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ] 
-        },
-        {
-          "id":"m_1_7",
-          "name": "云网络",
-          "title": "云网络",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_7_1",
-              "name": "弹性IP",
-              "title": "弹性IP",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_7_2",
-              "name": "端口映射",
-              "title": "端口映射",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_7_3",
-              "name": "访问控制",
-              "title": "访问控制",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_7_4",
-              "name": "日志管理",
-              "title": "日志管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]  
-        },
-        {
-          "id":"m_1_8",
-          "name": "云物理主机",
-          "title": "云物理主机",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_8_1",
-              "name": "实例管理",
-              "title": "实例管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_8_2",
-              "name": "裸机管理",
-              "title": "裸机管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_8_3",
-              "name": "日志管理",
-              "title": "日志管理",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]   
-        },
-        {
-          "id":"m_1_9",
-          "name": "入侵防护",
-          "title": "入侵防护",
-          "class":"fa fa-hand-o-down fa-fw",
-          "children": [
-            {
-              "id": "m_1_9_1",
-              "name": "监控概览",
-              "title": "监控概览",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_9_2",
-              "name": "统计分析",
-              "title": "统计分析",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            },
-            {
-              "id": "m_1_9_3",
-              "name": "威胁日志",
-              "title": "威胁日志",
-              "url":"./src/pages/page1.html",
-              "class":"fa fa-hand-o-right fa-fw"
-            }
-          ]   
         }
+
       ]
     }
 )
