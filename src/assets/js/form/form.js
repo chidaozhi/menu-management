@@ -42,7 +42,7 @@ $(function () {
                             var param = $('#form-0,#form-1,#form-2,#form-3').serializeObject();
                             var json = JSON.stringify(param);
                             $.ajax({
-                                url: "http://127.0.0.1:63342/mg-web/app/test2",
+                                url: "http://39.104.168.114:80/mg-web/app/test2",
                                 async: false,
                                 type: 'post',
                                 // useDefaultXhrHeader:false,
