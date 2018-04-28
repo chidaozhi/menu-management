@@ -3,8 +3,8 @@
         this.options = { //默认options参数值
             id: "", //容器Id
             canvasId: "verifyCanvas", //canvas的ID
-            width: "100", //默认canvas宽度
-            height: "30", //默认canvas高度
+            width: "300", //默认canvas宽度
+            height: "100", //默认canvas高度
             type: "blend", //图形验证码默认类型blend:数字字母混合类型、number:纯数字、letter:纯字母
             code: ""
         }
@@ -32,8 +32,8 @@
         _init: function() {
             var con = document.getElementById(this.options.id);
             var canvas = document.createElement("canvas");
-            this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "100";
-            this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "30";
+            this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "300";
+            this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "100";
             canvas.id = this.options.canvasId;
             canvas.width = this.options.width;
             canvas.height = this.options.height;
@@ -110,7 +110,6 @@
         validate: function(code){
             var code = code.toLowerCase();
             var v_code = this.options.code.toLowerCase();
-            console.log(v_code);
             if(code == v_code){
                 return true;
             }else{

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../../common/less/reset.css">
+	<link rel="stylesheet" href="../../../imports/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../common/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="../../../common/plugins/jquery-steps/css/normalize.css">
+	<link rel="stylesheet" href="../../../common/plugins/jquery-steps/css/main.css">
+	<link rel="stylesheet" href="../../../common/plugins/jquery-steps/css/jquery.steps.css">
+	<link rel="stylesheet" href="../../../common/plugins/icheck-1.x/css/custom.css">
+	<link rel="stylesheet" href="../../../common/plugins/icheck-1.x/skins/all.css">
+	<link rel="stylesheet" href="../../../assets/css/form/form.css">
+	
+</head>
+
+<body>
+<div class="main">
+		<div class="wizard step">
+			<h1>基本信息</h1>
+			<section class="basic">
+				<form id="form-0">
+					<div id="basic-form" class="form-content">
+						<p>
+							<label for="form-username">*用户名：</label>
+							<input type="text" class="form-control" id="form-username" name="username"/>
+						</p>
+						<p>
+							<label for="form-password">*密码：</label>
+							<input type="password" class="form-control" id="form-password" name="password"/>
+						</p>
+						<p>
+							<label for="form-confirm-password">*确认密码</label>
+							<input type="password" class="form-control" id="form-confirm-password" name="confirm-password"/>
+						</p>
+						<p>
+							<label for="form-mail">*电子邮箱：</label>
+							<input type="text" class="form-control" id="form-mail" name="mail"/>
+						</p>
+						<p>
+							<label for="phone">*手机号码：</label>
+							<input type="text" class="form-control" id="phone" name="phone"/>
+						</p>
+						<div class="skin skin-minimal">
+							<div class="skin-section">
+								<label >*性别：</label>
+								<ul class="list">
+									<!--<li><input type="radio" name="sex" value="男" id="male" data-labelauty="男"></li>
+									<li><input type="radio" name="sex" value="女" id="female" data-labelauty="女"></li>-->
+									<li>
+										<input type="radio" id="form-male" name="sex" value="男" checked>
+										<label for="form-male">男</label>
+									</li>
+									<li>
+										<input type="radio" id="form-female" name="sex" value="女">
+										<label for="form-female">女</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<p>
+							<label for="form-date">*生日：</label>
+							<input id="form-date" class="form-control" name="date" readonly/>
+						</p>
+						<p>
+							<label for="form-age">*年龄：</label>
+							<input id="form-age" class="form-control" name="age"/>
+						</p>
+					</div>
+				</form>
+			</section>
+			<h1>附加信息</h1>
+			<section  class="extra">
+				<form id="form-1">
+					<div id="extra-form" class="form-content">
+						<p>
+							<label>*所在位置：</label>
+							<select id="loc_province" name="province" style="width:120px;" required></select>
+							<select id="loc_city" name="city" style="width:120px; margin-left: 10px" required></select>
+							<select id="loc_town" name="town" style="width:120px;margin-left: 10px" required></select>
+						</p>
+						<p>
+							<label>自我介绍（非必填：不得超过400字）</label>
+							<textarea placeholder="请输入内容" class="form-control textarea" name="textarea" id="textarea"></textarea>
+						</p>
+					</div>
+				</form>
+			</section>
+			<h1>兴趣爱好</h1>
+			<section class="interest">
+				<form id="form-2">
+					<div id="interest-form" class="form-content">
+					<p>
+						<label>爱好：</label>
+						<select class="interest-select" name="interest" multiple="multiple">
+							<option value="classical" id="classical">古典</option>
+							<option value="martial" id="martial">武侠</option>
+							<option value="love" id="love">恋爱</option>
+							<option value="japanese" id="japanese">日系</option>
+							<option value="korean" id="korean">韩系</option>
+							<option value="immortol" id="immortol">修仙</option>
+							<option value="other" id="other">其他</option>
+						</select>
+					</p>
+					<div class="skin skin-line icheck-width">
+						<div class="skin-section">
+							<label>关注题材：</label>
+							
+							<ul class="list">
+								<li>
+									<input tabindex="17" type="checkbox" id="society" name="attention" value="society">
+									<label for="society">社会</label>
+								</li>
+								<li>
+									<input tabindex="18" type="checkbox" id="life" name="attention" value="life">
+									<label for="life">生活</label>
+								</li>
+								<li>
+									<input type="checkbox" id="sports" name="attention" value="sports">
+									<label for="sports">运动</label>
+								</li>
+								<li>
+									<input type="checkbox" id="art" name="attention" value="art">
+									<label for="art">艺术</label>
+								</li>
+								<li>
+									<input type="checkbox" id="culture" name="attention" value="culture">
+									<label for="culture">文化</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				</form>
+			</section>
+			<h1>购买产品</h1>
+			<section class="service">
+				<form id="form-3">
+					<div id="service-form" class="form-content">
+						<div class="skin skin-line icheck-width">
+							<div class="skin-section">服务级别：
+								<ul class="list service level">
+									<li>
+										<input tabindex="19" type="radio" id="primary" name="service" price="58" value="primary">
+										<label for="primary">高级会员(58/年)</label>
+									</li>
+									<li>
+										<input tabindex="20" type="radio" id="middle" name="service" price="88" value="middle">
+										<label for="middle">超级会员（88/年）</label>
+									</li>
+									<li>
+										<input type="radio" id="high" name="service" price="118" value="high">
+										<label for="high">至尊会员（118/年）</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="service-time"></div>
+						<div class="price">
+							<label>共计：</label>
+							<span>￥</span>
+							<span id="price"></span>
+						</div>
+					</div>
+				</form>
+			</section>
+			<h1>请输入验证码</h1>
+			<section class="submit-btns">
+				<div class="verify-img form-content" >
+					<div id="verify" ></div>
+					<form>
+						<input type="text" id="code_input" class="form-control form-verify" name="code_input" value="" placeholder="请输入验证码"/>
+					</form>
+				</div>
+				
+			</section>
+		</div>
+</div>
+<script src="../../../imports/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../../common/plugins/jquery-steps/js/jquery.steps.min.js"></script>
+<script src="../../../common/plugins/layer-v3.1.1/layer/layer.js"></script>
+<script src="../../../imports/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../common/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../../../common/plugins/layDate-v5.0.9/laydate/laydate.js"></script>
+<script src="../../../common/plugins/select2/js/select2.min.js" ></script>
+<script src="../../../common/plugins/select2/js/i18n/zh-CN.js" ></script>
+<script src="../js/location-country.js" ></script>
+<script src="../js/area.js" ></script>
+<script src="../../../common/plugins/icheck-1.x/js/icheck.min.js"></script>
+<script src="../../../common/plugins/icheck-1.x/js/custom.min.js"></script>
+<script src="../../../common/plugins/gVerify/gVerify.js"></script>
+<script src="../../../assets/js/form/form.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body .layui-layer{
+    background-color: #fff;color:#333;border-radius:5px;
+}
+body .layer-ext-myskin .layui-layer-title{
+    background-color:rgb(33,132,190);color:#fff;border-radius:5px 5px 0 0;
+}
+body .layui-layer-btn .layui-layer-btn0 {
+    background-color:rgb(33,132,190);color:#fff;border-radius:2px;
+}
+body .layui-layer-btn .layui-layer-btn1 {
+    background-color:rgb(157,200,226);border-radius:2px;color:#34495e;
+}

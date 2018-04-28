@@ -1,0 +1,181 @@
+body {
+	font-family: "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif;
+	background: white;
+	line-height: 18px;
+}
+
+.form-content {
+	width: 660px;
+	height: 356px;
+	overflow: hidden;
+	margin: 0 auto 0;
+	padding: 10px;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+a:focus {
+	outline: 0;
+}
+
+body form .form-control {
+	width: auto;
+}
+
+.form-control[readonly] {
+	background-color: #fff !important;
+}
+
+body form .form-control.textarea {
+	width: 450px;
+}
+
+body form .form-control.form-verify {
+	width: 300px;
+}
+.skin{
+	margin: 0;
+}
+.skin.skin-minimal {
+	margin: 0;
+}
+
+.skin-section {
+	padding: 0;
+}
+
+.icheckbox_line-blue, .iradio_line-blue {
+	background: rgb(157, 200, 226);
+}
+
+.icheckbox_line-blue.checked, .iradio_line-blue.checked {
+	background: #2184be;;
+}
+
+.skin-section,
+.skin-section .list {
+	float: none;
+	display: inline-block !important;
+}
+
+.skin-section .list li {
+	width: auto;
+	display: inline-block !important;
+}
+
+/*label.error {*/
+/*display: inline-block !important;*/
+/*position: absolute;*/
+/*float: left;*/
+/*background: yellow;*/
+/*margin-left: 60px;*/
+/*padding-left: 16px;*/
+/*color: #EA5200;*/
+/*width: 150px;*/
+/*height: auto;*/
+/*border-radius: 10px;*/
+/*}*/
+body .main section {
+	margin-top: 15px;
+}
+
+form .textarea {
+	width: 100%;
+	height: auto;
+	min-height: 100px;
+}
+
+.interest-select,
+.service-time-select {
+	width: 200px;
+}
+
+/*input.service-input {
+	display: none;
+}*/
+
+.laydate-set-ym > span[lay-type="year"], .laydate-prev-y, .laydate-next-y {
+	display: none !important;
+}
+
+.wizard {
+	margin-top: 10px;
+}
+
+.wizard > .content {
+	min-height: 400px !important;
+}
+
+.wizard > .content > .body {
+	padding: 0;
+}
+
+.wizard > .actions a {
+	border: 0;
+}
+
+.wizard > .actions .disabled a,
+.wizard > .actions .disabled a:hover,
+.wizard > .actions .disabled a:active {
+	cursor: not-allowed;
+}
+
+.wizard > .steps > ul > li {
+	width: 20%;
+}
+
+.wizard > .actions > ul > li.submit-btn {
+	background: #eee;
+	color: #aaa;
+	display: block;
+	padding: 0.5em 1em;
+	cursor: not-allowed;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.wizard > .actions > ul > li.submit-btn.enabled {
+	cursor: pointer;
+	background: #2184be;
+	color: #fff;
+}
+
+.wizard > .actions > ul > li.test-btn {
+	background: #2184be;
+	color: #fff;
+	display: block;
+	padding: 0.5em 1em;
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.wizard > .content > .body input {
+	display: inline-block !important;
+	border: 1px solid #ccc;
+}
+
+#verify {
+	width: 400px;
+	height: 120px;
+}
+.price{
+	margin-top: 40px;
+}
+#price{
+	font-size: 20px;
+}
+/*form ul {
+	list-style-type: none;
+}
+
+form li {
+	display: inline-block;
+	margin: 10px 0;
+}*/
+/*input.labelauty+label {
+	font: 12px "Microsoft Yahei";
+}*/
