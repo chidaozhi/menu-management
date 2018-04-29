@@ -18,13 +18,18 @@ $(function () {
             previous: '上一步'
         },
         onStepChanging: function (event, currentIndex, newIndex) {
-            var currentFormValid = $('form:visible').valid();
-            if (currentFormValid) {
-                // alert('本页验证通过');
-                return true;
+            var ifValid = newIndex - currentIndex;
+            if (ifValid > 0) {
+                var currentFormValid = $('form:visible').valid();
+                if (currentFormValid) {
+                    // alert('本页验证通过');
+                    return true;
+                } else {
+                    layer.msg('填写有误');
+                    return false;
+                }
             } else {
-                layer.msg('填写有误');
-                return false;
+                return true;
             }
         },
         onFinishing: function (event, currentIndex) {
@@ -71,25 +76,25 @@ $(function () {
                     layer.close();
                 }
             });
-            // return true;
-            return true;
+            return true;//return false 不能继续往下进行
         }
     });
+
     /**
      * layer全局配置
      */
     layer.config({
         extend: 'myskin/style.css'
     });
+
     /**
      * 生成验证码
      */
     var verifyCode = new GVerify("verify");
+
     /**
-     * 动态创建测试&提交按钮
+     * 动态创建测试按钮
      */
-        // var finishedSubmit = "<li id='submit-btn' class='submit-btn' style='display: block;margin: 0 0.5em;float: left;'>提交</li>";
-        // $('.actions > ul').append(finishedSubmit);
     var testBtn = "<li id='test-btn' class='test-btn' style='display: block;margin: 0 0.5em;float: left;'>一键测试</li>";
     $('.actions > ul').append(testBtn);
 
@@ -118,11 +123,13 @@ $(function () {
      * icheck单选、复选框
      */
     $(document).ready(function () {
+        //小圆按钮
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox_minimal-blue',
             radioClass: 'iradio_minimal-blue',
             increaseArea: '20%'
         });
+        //长文字按钮
         $('.skin-line input').each(function () {
             var self = $(this),
                 label = self.next(),
@@ -134,6 +141,7 @@ $(function () {
                 insert: '<div class="icheck_line-icon"></div>' + label_text
             });
         });
+        //自定义--单选且可不选按钮
         $("input[name='service']").on("ifChecked", function (event) {
             $("input[name='service']").on("ifClicked", function (event) {
                 $("input[name='service']").iCheck('uncheck');
@@ -153,11 +161,10 @@ $(function () {
                     '                            </select>\n' +
                     '                        </div>');
                 $('.js-example-basic-single.service-time-select').select2();
-                countPrice();
+                countPrice();//页面加载好后直接计价
                 $('.js-example-basic-single.service-time-select').change(function () {
-                    countPrice();
+                    countPrice();//有任何变动再次计价
                 });
-
             }
         });
 
@@ -171,8 +178,10 @@ $(function () {
         closeOnSelect: false,
         allowClear: true
     });
+    //裁去不必要的一个默认模块
     $('.select2-search__field').remove();
     showLocation();
+
     /**
      * laydate日期插件
      */
@@ -183,14 +192,11 @@ $(function () {
         done: function (value, date) {
         }
     });
-    /**
-     * 验证码插件
-     */
 
     /**
      * 表单验证
-     * 1.添加自定义验证-手机验证
      */
+    //1.添加自定义验证-手机验证
     $.validator.addMethod(
         'phone',
         function (value, element, param) {
@@ -199,10 +205,7 @@ $(function () {
         },
         '请输入正确的手机号码'
     );
-    /**
-     * 表单验证
-     * 2.添加自定义验证-多行文本框
-     */
+    //2.添加自定义验证-多行文本框
     $.validator.addMethod(
         'textArea',
         function (value, element, param) {
@@ -211,16 +214,12 @@ $(function () {
         },
         '字数不得超过400'
     );
-
-    /**
-     * 表单验证
-     * 验证规则配置
-     */
+    //验证规则配置
     $.validator.setDefaults({
         debug: true,
         success: "valid"
-
     });
+    //验证项是用name值绑定的
     $('#form-0').validate({
         rules: {
             username: {
@@ -245,7 +244,7 @@ $(function () {
                 required: true,
                 'phone': true
             },
-            'form-date': {
+            'date': {
                 required: true
             },
             age: {
@@ -265,11 +264,7 @@ $(function () {
             }
         }
     });
-
-    /**
-     * 表单验证
-     * 汉字提示
-     */
+    //汉字提示
     $.extend($.validator.messages, {
         required: "这是必填字段",
         remote: "请修正此字段",
@@ -288,13 +283,8 @@ $(function () {
         range: $.validator.format("请输入范围在 {0} 到 {1} 之间的数值"),
         max: $.validator.format("请输入不大于 {0} 的数值"),
         min: $.validator.format("请输入不小于 {0} 的数值"),
-
     });
-
-
-    /**
-     * 自动将form表单封装成json对象
-     */
+    //自动将form表单封装成json对象
     $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
@@ -310,6 +300,7 @@ $(function () {
         });
         return o;
     };
+
     /**
      * 一键添加所有测试项
      */
@@ -332,7 +323,7 @@ $(function () {
         $('#loc_city').trigger('change');
         $('#loc_town option').remove(':first');
         $('#loc_town').trigger('change');
-        $("#textarea").text("text");
+        $("#form-textarea").text("text");
         $('.interest-select').val(['love', 'japanese']);
         $('.interest-select').trigger('change');
         $('#high').iCheck('check');

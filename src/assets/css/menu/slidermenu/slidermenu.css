@@ -14,10 +14,10 @@
 	height: calc(100vh - 50px);
 	background: #1d2b38;
 	overflow: hidden;
-	-webkit-transition: all 0.8s;
-	-ms-transition: all 0.8s;
-	-o-transition: all 0.8s;
-	transition: all 0.8s;
+	/*-webkit-transition: all 0.8s;*/
+	/*-ms-transition: all 0.8s;*/
+	/*-o-transition: all 0.8s;*/
+	/*transition: all 0.8s;*/
 }
 
 #absolute-box.is-acive {
@@ -48,20 +48,19 @@
 }
 
 /*#hum-butt {*/
-	/*display: block;*/
-	/*width: auto;*/
-	/*height: auto;*/
-	/*position: absolute;*/
-	/*!*top: 58px;+header*!*/
-	/*top: 8px;*/
-	/*left: 10px;*/
-	/*z-index: 1500;*/
-	/*-webkit-transition: all 0.8s;*/
-	/*-ms-transition: all 0.8s;*/
-	/*-o-transition: all 0.8s;*/
-	/*transition: all 0.8s;*/
+/*display: block;*/
+/*width: auto;*/
+/*height: auto;*/
+/*position: absolute;*/
+/*!*top: 58px;+header*!*/
+/*top: 8px;*/
+/*left: 10px;*/
+/*z-index: 1500;*/
+/*-webkit-transition: all 0.8s;*/
+/*-ms-transition: all 0.8s;*/
+/*-o-transition: all 0.8s;*/
+/*transition: all 0.8s;*/
 /*}*/
-
 
 /*#hum-butt.is-scroll{*/
 /*-webkit-transform: translateX(-230px) ;*/
