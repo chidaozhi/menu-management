@@ -111,7 +111,6 @@ $(function () {
                         if (submitValid === true) {
 
                             var param = $('#form-basic,#form-extra,#form-interest,#form-service').serializeObject();
-                            console.log(param);
                             var json = JSON.stringify(param);
                             $.ajax({
                                 url: "http://39.104.168.114:80/mg-web/app/test2",
