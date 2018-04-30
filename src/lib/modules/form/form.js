@@ -3,6 +3,62 @@
  */
 ;"use strict";
 $(function () {
+    /*************************
+     * 常量&变量
+     *************************/
+    var allForm = $('#form-basic,#form-extra,#form-interest,#form-service');
+    var verifyCode = {};
+    var NO_CH = /[\u4e00-\u9fa5]/g;  //正则去掉汉字
+
+    /*************************
+     * 方法
+     ************************/
+    //自动将form表单封装成json对象
+
+    $.fn.serializeObject = function () {
+        var o = {};
+        var dateValue = $('#form-date').val();
+        dateValue = dateValue.replace(NO_CH,'-').split('-').splice(0,2);
+        var formDateMonth = dateValue[0];
+        var formDateDate = dateValue[1];
+        var resourceDate = [
+            {"name": "month","value":formDateMonth},
+            {"name": "day","value":formDateDate}
+        ];
+        var a = this.serializeArray().concat(resourceDate);
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+    /**
+     * 计算价格
+     */
+    var countPrice = function () {
+        var price = NaN;
+        var unitPrice = $('input[name="service"]:checked').attr('price');
+        var buyYear = $('.js-example-basic-single.service-time-select').val();
+        if (buyYear === undefined || unitPrice === undefined) {
+            price = 0;
+        } else {
+            price = unitPrice * buyYear;
+        }
+        $('#price').text(price);
+        return price;
+    };
+
+    /*************************
+     * 插件
+     ************************/
+
     /**
      * jquery-steps
      * 步骤插件
@@ -16,6 +72,13 @@ $(function () {
             finish: "提交",
             next: '下一步',
             previous: '上一步'
+        },
+        onInit:function () {
+            /**
+             * 跟随分布按钮，动态创建测试按钮
+             */
+            var testBtn = "<li id='test-btn' class='test-btn' style='display: block;margin: 0 0.5em;float: left;'>一键测试</li>";
+            $('.actions > ul').append(testBtn);
         },
         onStepChanging: function (event, currentIndex, newIndex) {
             var ifValid = newIndex - currentIndex;
@@ -40,11 +103,15 @@ $(function () {
                 , btn: ['确认', '返回'] //按钮
                 , icon: 3    // icon
                 , yes: function (index, layero) {
-                    var res = verifyCode.validate(document.getElementById("code_input").value);
-                    if (res) {
-                        var submitValid = $('#form-0,#form-1,#form-2,#form-3').valid();
+                    //验证码验证判断
+                    var codeSuccess = verifyCode.validate(document.getElementById("code_input").value);
+                    if (codeSuccess) {
+                        //检验每个表单验证通过
+                        var submitValid = $('#form-basic,#form-extra,#form-interest,#form-service').valid();
                         if (submitValid === true) {
-                            var param = $('#form-0,#form-1,#form-2,#form-3').serializeObject();
+
+                            var param = $('#form-basic,#form-extra,#form-interest,#form-service').serializeObject();
+                            console.log(param);
                             var json = JSON.stringify(param);
                             $.ajax({
                                 url: "http://39.104.168.114:80/mg-web/app/test2",
@@ -88,86 +155,66 @@ $(function () {
     });
 
     /**
-     * 生成验证码
+     * laydate日期插件
      */
-    var verifyCode = new GVerify("verify");
-
-    /**
-     * 动态创建测试按钮
-     */
-    var testBtn = "<li id='test-btn' class='test-btn' style='display: block;margin: 0 0.5em;float: left;'>一键测试</li>";
-    $('.actions > ul').append(testBtn);
-
-    /**
-     * 计算价格
-     */
-    var unitPrice;
-    var buyYear;
-    var price;
-
-    function countPrice() {
-        unitPrice = $('input[name="service"]:checked').attr('price');
-        buyYear = $('.js-example-basic-single.service-time-select').val();
-        if (buyYear === undefined || unitPrice === undefined) {
-            price = 0;
-        } else {
-            price = unitPrice * buyYear;
+    var lay = laydate.render({
+        elem: '#form-date',
+        format: 'M月d日',
+        // value:nowDate,
+        done: function (value, date) {
+            // value = [];
+            // value[1] = date.date;
+            // value[0] = date.month;
+            return value = date.month + '.' + date.date;
         }
-        $('#price').text(price);
-        return price;
-    }
-
-    countPrice();
+    });
 
     /**
      * icheck单选、复选框
      */
-    $(document).ready(function () {
-        //小圆按钮
-        $('.skin-minimal input').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass: 'iradio_minimal-blue',
-            increaseArea: '20%'
+    //小圆按钮
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass: 'iradio_minimal-blue',
+        increaseArea: '20%'
+    });
+    //长文字按钮
+    $('.skin-line input').each(function () {
+        var self = $(this),
+            label = self.next(),
+            label_text = label.text();
+        label.remove();
+        self.iCheck({
+            checkboxClass: 'icheckbox_line-blue',
+            radioClass: 'iradio_line-blue',
+            insert: '<div class="icheck_line-icon"></div>' + label_text
         });
-        //长文字按钮
-        $('.skin-line input').each(function () {
-            var self = $(this),
-                label = self.next(),
-                label_text = label.text();
-            label.remove();
-            self.iCheck({
-                checkboxClass: 'icheckbox_line-blue',
-                radioClass: 'iradio_line-blue',
-                insert: '<div class="icheck_line-icon"></div>' + label_text
+    });
+    //自定义--单选且可不选按钮
+    $("input[name='service']").on("ifChecked", function (event) {
+        $("input[name='service']").on("ifClicked", function (event) {
+            $("input[name='service']").iCheck('uncheck');
+        });
+    });
+    $("input[name='service']").on('ifChanged', function () {
+        countPrice();//服务变动计价
+        var serviceVal = $("input[name='service']:checked").val();
+        if (serviceVal === undefined) {
+            $('.service-time').empty();
+        } else {
+            $('.service-time').append('<div class="service-time-select"> 购买时间：\n' +
+                '                            <select id="buy-year" class="js-example-basic-single service-time-select" name="buyYear">\n' +
+                '                                <option value="1">1年</option>\n' +
+                '                                <option value="2">2年</option>\n' +
+                '                                <option value="3">3年</option>\n' +
+                '                            </select>\n' +
+                '                        </div>');
+            $('.js-example-basic-single.service-time-select').select2();
+            countPrice();//添加购买年份后直接计价
+            $('.js-example-basic-single.service-time-select').change(function () {
+                countPrice();//有任何变动再次计价
             });
-        });
-        //自定义--单选且可不选按钮
-        $("input[name='service']").on("ifChecked", function (event) {
-            $("input[name='service']").on("ifClicked", function (event) {
-                $("input[name='service']").iCheck('uncheck');
-            });
-        });
-        $("input[name='service']").on('ifChanged', function () {
-            countPrice();
-            var serviceVal = $("input[name='service']:checked").val();
-            if (serviceVal == undefined) {
-                $('.service-time').empty();
-            } else {
-                $('.service-time').append('<div class="service-time-select"> 购买时间：\n' +
-                    '                            <select id="buy-year" class="js-example-basic-single service-time-select" name="buyYear">\n' +
-                    '                                <option value="1">1年</option>\n' +
-                    '                                <option value="2">2年</option>\n' +
-                    '                                <option value="3">3年</option>\n' +
-                    '                            </select>\n' +
-                    '                        </div>');
-                $('.js-example-basic-single.service-time-select').select2();
-                countPrice();//页面加载好后直接计价
-                $('.js-example-basic-single.service-time-select').change(function () {
-                    countPrice();//有任何变动再次计价
-                });
-            }
-        });
-
+        }
     });
 
     /**
@@ -178,25 +225,17 @@ $(function () {
         closeOnSelect: false,
         allowClear: true
     });
-    //裁去不必要的一个默认模块
-    $('.select2-search__field').remove();
-    showLocation();
-
-    /**
-     * laydate日期插件
-     */
-    var lay = laydate.render({
-        elem: '#form-date',
-        format: 'M月d日',
-        // value:nowDate,
-        done: function (value, date) {
-        }
-    });
+    $('.select2-search__field').remove();//裁去不必要的一个默认模块
 
     /**
      * 表单验证
      */
-    //1.添加自定义验证-手机验证
+    //验证全局配置
+    $.validator.setDefaults({
+        success: "valid"
+    });
+    //自定义区
+    //1.手机验证
     $.validator.addMethod(
         'phone',
         function (value, element, param) {
@@ -205,7 +244,7 @@ $(function () {
         },
         '请输入正确的手机号码'
     );
-    //2.添加自定义验证-多行文本框
+    //2多行文本框
     $.validator.addMethod(
         'textArea',
         function (value, element, param) {
@@ -214,13 +253,8 @@ $(function () {
         },
         '字数不得超过400'
     );
-    //验证规则配置
-    $.validator.setDefaults({
-        debug: true,
-        success: "valid"
-    });
-    //验证项是用name值绑定的
-    $('#form-0').validate({
+    //验证规则-用name值绑定
+    $('#form-basic').validate({
         rules: {
             username: {
                 required: true,
@@ -257,7 +291,7 @@ $(function () {
             }
         }
     });
-    $('#form-1').validate({
+    $('#form-extra').validate({
         rules: {
             'textarea': {
                 textArea: true
@@ -284,28 +318,17 @@ $(function () {
         max: $.validator.format("请输入不大于 {0} 的数值"),
         min: $.validator.format("请输入不小于 {0} 的数值"),
     });
-    //自动将form表单封装成json对象
-    $.fn.serializeObject = function () {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
 
+
+
+    /*************************
+     * 按钮操作
+     ************************/
     /**
      * 一键添加所有测试项
      */
     $('#test-btn').click(function () {
-        var title = '<option></option>';
+        // var title = '<option></option>';
         $('#form-username').attr("value", "chidao");
         $('#form-password').attr("value", "123123");
         $('#form-confirm-password').attr("value", "123123");
@@ -330,6 +353,16 @@ $(function () {
         $('#test-btn').remove();
     });
 
+    /*************************
+     * 页面初始化
+     ************************/
+    var initFunc = function () {
+        showLocation();//位置信息
+        countPrice();
+        //初始化验证码
+        verifyCode = new GVerify("verify");
+    };
+    initFunc();
 });
 
 

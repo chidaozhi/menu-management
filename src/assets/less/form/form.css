@@ -1,9 +1,9 @@
 @import url("../../../common/less/reset.css");
-@import url("../../../imports/bootstrap/css/bootstrap.min.css");
-@import url("../../../common/plugins/select2/css/select2.min.css");
-@import url("../../../common/plugins/jquery-steps/css/normalize.css");
-@import url("../../../common/plugins/jquery-steps/css/main.css");
-@import url("../../../common/plugins/jquery-steps/css/jquery.steps.css");
-@import url("../../../common/plugins/icheck-1.x/css/custom.css");
-@import url("../../../common/plugins/icheck-1.x/skins/all.css");
+@import url("../../../imports/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("../../../common/plugins/select2/4.0.5/css/select2.min.css");
+@import url("../../../common/plugins/jquery-steps/1.1.0/css/normalize.css");
+@import url("../../../common/plugins/jquery-steps/1.1.0/css/main.css");
+@import url("../../../common/plugins/jquery-steps/1.1.0/css/jquery.steps.css");
+@import url("../../../common/plugins/icheck/1.0.2/css/custom.css");
+@import url("../../../common/plugins/icheck/1.0.2/skins/all.css");
 @import url("../../../assets/css/form/form.css");
